@@ -1,12 +1,11 @@
+"use client"
 
-'use client'
-
-import Button from "@/components/Button";
-import {getCurrentUser} from "@/auth/getCurrentUser";
+import Button from "@/components/Button"
+import { getCurrentUser } from "@/auth/getCurrentUser"
 
 export default function Home() {
-
   const user = getCurrentUser()
+
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex pb-8">
@@ -14,9 +13,17 @@ export default function Home() {
           Welcome
           <code className="font-mono font-bold">{user.name}</code>
         </p>
-        <Button>Get Email</Button>
-        </div>
-        <div>User Email: {"email address"} </div>
+        <form>
+          <input
+            name="id"
+            className="mr-2 p-2 rounded"
+            type="number"
+            placeholder="Enter user ID"
+          />
+          <Button type="submit">Get Email</Button>
+        </form>
+      </div>
+      <div>User Email: {"email address"} </div>
     </main>
-  );
+  )
 }
